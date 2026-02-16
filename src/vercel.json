@@ -1,5 +1,4 @@
 ﻿{
-  "framework": "nextjs",
   "headers": [
     {
       "source": "/(.*)",
@@ -11,4 +10,3 @@
     }
   ]
 }
-
