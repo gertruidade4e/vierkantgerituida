@@ -1,0 +1,218 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg: #070a11;
+  --surface: #101522;
+  --surface-2: #171d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #9ea6ba;
+  --ring: #4f79ff;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+* {
+  border-color: color-mix(in oklab, white 12%, transparent);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 84% 8%, rgba(55, 95, 255, 0.25), transparent 34%),
+    radial-gradient(circle at 20% 0%, rgba(36, 211, 255, 0.2), transparent 26%),
+    radial-gradient(circle at 50% 120%, rgba(70, 37, 135, 0.24), transparent 34%),
+    var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+}
+
+html,
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 0.55px, transparent 0.55px);
+  background-size: 22px 22px;
+  opacity: 0.24;
+}
+
+.font-heading {
+  font-family: var(--font-heading), serif;
+}
+
+.panel-glass {
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 80px -40px rgba(53, 109, 255, 0.55);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.32rem 0.72rem;
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ced7f1;
+}
+
+.nav-link {
+  color: #bac2d4;
+  font-size: 0.875rem;
+  transition: color 200ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: white;
+}
+
+.section-spacing {
+  padding: 6rem 0;
+}
+
+.section-title {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  color: white;
+}
+
+.section-description {
+  margin-top: 1rem;
+  max-width: 44rem;
+  color: var(--text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(65, 114, 255, 0.3), transparent 36%),
+    radial-gradient(circle at 72% 20%, rgba(27, 201, 255, 0.2), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(89, 58, 171, 0.16), transparent 34%);
+  animation: drift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.footer-heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7f8aa3;
+}
+
+.footer-list {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #d4d9e8;
+}
+
+.footer-list a {
+  transition: color 200ms ease;
+}
+
+.footer-list a:hover,
+.footer-list a:focus-visible {
+  color: white;
+}
+
+.prose-shell {
+  max-width: 56rem;
+}
+
+.prose-shell h1 {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(2.3rem, 5vw, 3.3rem);
+  color: white;
+}
+
+.prose-shell h2 {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: white;
+}
+
+.prose-shell p {
+  margin-top: 0.8rem;
+  color: #c5cce0;
+  line-height: 1.7;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1) translateY(0);
+  }
+  to {
+    transform: scale(1.04) translateY(-12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 4.5rem 0;
+  }
+
+  body::before {
+    opacity: 0.16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
